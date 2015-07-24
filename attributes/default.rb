@@ -41,6 +41,7 @@ default['snmp']['syslocationVirtual'] = 'Virtual Server'
 default['snmp']['syslocationPhysical'] = 'Server Room'
 default['snmp']['syscontact'] = 'Root <root@localhost>'
 default['snmp']['full_systemview'] = false
+default['snmp']['additional_oids'] = nil # Might be String or Array of Strings
 default['snmp']['trapcommunity'] = 'public'
 default['snmp']['trapsinks'] = []
 default['snmp']['process_monitoring']['proc'] = []
