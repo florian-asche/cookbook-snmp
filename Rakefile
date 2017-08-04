@@ -1,40 +1,66 @@
 #!/usr/bin/env rake
 
-# chefspec task against spec/*_spec.rb
+require 'bundler/setup'
 require 'rspec/core/rake_task'
-RSpec::Core::RakeTask.new(:chefspec)
+require 'rubocop/rake_task'
+require 'foodcritic'
+require 'kitchen'
 
-# foodcritic rake task
-desc 'Foodcritic linter'
-task :foodcritic do
-  sh 'foodcritic -f correctness .'
+namespace :style do
+  desc 'Run Ruby style checks'
+  RuboCop::RakeTask.new(:ruby)
+
+  desc 'Run Chef style checks'
+  FoodCritic::Rake::LintTask.new(:chef)
 end
 
-# rubocop rake task
-desc 'Ruby style guide linter'
-task :rubocop do
-  sh 'rubocop --fail-level W'
+desc 'Run all style checks'
+task style: ['style:chef', 'style:ruby']
+
+desc 'Run ChefSpec unit tests'
+RSpec::Core::RakeTask.new(:unit) do |t|
+  t.rspec_opts = '--color --format progress'
 end
 
-# test-kitchen task
-begin
-  require 'kitchen/rake_tasks'
-  Kitchen::RakeTasks.new
-rescue LoadError
-  puts '>>>>> Kitchen gem not loaded, omitting tasks' unless ENV['CI']
+namespace :integration do
+  desc 'Run Test Kitchen with Vagrant'
+  task :vagrant do
+    Kitchen.logger = Kitchen.default_file_logger
+    Kitchen::Config.new.instances.each do |instance|
+      instance.test(:always)
+    end
+  end
+
+  desc 'Run Test Kitchen with cloud plugins'
+  task :cloud do
+    run_kitchen = true
+    if ENV['TRAVIS'] == 'true' && ENV['TRAVIS_PULL_REQUEST'] != 'false'
+      run_kitchen = false
+    end
+
+    if run_kitchen
+      Kitchen.logger = Kitchen.default_file_logger
+      @loader = Kitchen::Loader::YAML.new(project_config: './.kitchen.cloud.yml')
+      config = Kitchen::Config.new(loader: @loader)
+      config.instances.each do |instance|
+        instance.test(:always)
+      end
+    end
+  end
+
+  desc 'Destroy all cloud-based Test Kitchen nodes'
+  task :cloud_destroy do
+    Kitchen.logger = Kitchen.default_file_logger
+    @loader = Kitchen::Loader::YAML.new(project_config: './.kitchen.cloud.yml')
+    config = Kitchen::Config.new(loader: @loader)
+    config.instances.each do |instance|
+      instance.destroy
+    end
+  end
 end
 
-# Deploy task
-desc 'Deploy to chef server and pin to environment'
-task :deploy do
-  sh 'berks upload'
-  sh 'berks apply ci'
-end
+desc 'Run all tests on Travis'
+task travis: %w(style unit integration:cloud)
 
-desc 'erubis format check'
-task :erbcheck do
-  sh "erubis -x -T '-' templates/default/*.erb | ruby -c"
-end
-
-# default tasks are quick, commit tests
-task default: %w(foodcritic rubocop chefspec erbcheck)
+# Default
+task default: %w(style unit integration:vagrant)
