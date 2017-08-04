@@ -72,6 +72,11 @@ these following attributes to best suit your own environment.
      snmpwalk.  However, if you're running SNMP Network Management System,
      you'll want to override this as "true" on your systems.
 
+* `snmp['additional_oids']`
+  - String or Array of Strings representing the oid to include in systemview.
+    This defaults to "nil". You can add one oid in the of '.1.3.6.1.2.1.2021' or
+    an array of oids like ['.1.3.6.1.2.1.2021','.1.3.6.1.4.1.20267.200']
+
 * `snmp['include_all_disks']`
   - Boolean to include disk usage checks for all filesystems.
     Default is "false"
