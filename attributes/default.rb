@@ -46,6 +46,7 @@ default['snmp']['groups']['v2c'] = { 'notConfigGroup' => %w(notConfigUser) }
 default['snmp']['syslocationVirtual'] = 'Virtual Server'
 default['snmp']['syslocationPhysical'] = 'Server Room'
 default['snmp']['syscontact'] = 'Root <root@localhost>'
+default['snmp']['sysname'] = node['fqdn']
 default['snmp']['full_systemview'] = false
 default['snmp']['trapcommunity'] = 'public'
 default['snmp']['trapsinks'] = []
