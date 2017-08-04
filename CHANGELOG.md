@@ -1,5 +1,11 @@
 snmp cookbook CHANGELOG
 =======================
+v4.0.2
+------
+
+@floored1585
+* Added pass and pass_persist attributes
+
 v4.0.1
 ------
 * Ownership transfered to @thomasvincent
