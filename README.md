@@ -188,8 +188,11 @@ You can apply these override attributes in a role, or node context.
 ### Author and License
 
 Author:: Eric G. Wolfe (eric.wolfe@gmail.com) [![endorse](https://api.coderwall.com/atomic-penguin/endorsecount.png)](https://coderwall.com/atomic-penguin)
+Author:: Thomas Vincent (thomasvincent@gmail.com) [![endorse](https://api.coderwall.com/thomasvincent/endorsecount.png)](https://coderwall.com/thomasvincent)
 
-Copyright 2010-2014
+
+Copyright Thomas Vincent 2017
+Copyright Eric G. Wolfe 2010-2017
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
