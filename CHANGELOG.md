@@ -1,5 +1,12 @@
 snmp cookbook CHANGELOG
 =======================
+v4.0.1
+------
+* Ownership transfered to @thomasvincent
+* Copyright updated
+* .github templates
+* configuration files updated and added
+* Oracle added as supported platform
 
 v4.0.0
 ------
@@ -11,7 +18,7 @@ v4.0.0
 
   * Added sysName to System contact information section
   * snmpd.conf should only be readable to root
-  * Update various build files 
+  * Update various build files
 
 v3.0.1
 ------
@@ -73,13 +80,13 @@ v1.1.0
 
 v1.0.0
 ------
-  
+
   Add snmptrapd recipe, and add RHEL support.
   Template debian files.
   Add test-kitchen skeleton.
   Typos in platform_family case switches.
   Check for existence of dmi OHAI attribute, before checking in a condition.
-  Correct minitest-spec file for Chef 11.x  
+  Correct minitest-spec file for Chef 11.x
 
 v0.4.0
 ------

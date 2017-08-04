@@ -1,13 +1,19 @@
-maintainer 'Eric G. Wolfe'
-maintainer_email 'eric.wolfe@gmail.com'
-license 'Apache 2.0'
-description 'Installs/Configures snmp on redhat, centos, ubuntu, debian'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 name 'snmp'
-version '4.0.0'
+maintainer 'Thomas Vincent'
+maintainer_email 'thomasvincent@gmail.com'
+license 'Apache-2.0'
+description 'Installs and configures snmpd''
+version '4.0.1'
 
-recipe 'snmp', 'Installs and configures snmpd'
+source_url 'https://github.com/thomasvincent/cookbook-snmp'
+issues_url 'https://github.com/thomasvincent/cookbook-snmp/issues'
 
-%w(ubuntu debian redhat centos scientific fedora suse).each do |os|
-  supports os
-end
+supports 'amazon'
+supports 'centos'
+supports 'scientific'
+supports 'oracle'
+supports 'debian'
+supports 'fedora'
+supports 'redhat'
+supports 'ubuntu'
+supports 'suse'
