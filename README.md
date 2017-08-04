@@ -1,9 +1,9 @@
 SNMP
 ----
 
-[![Build Status](https://secure.travis-ci.org/atomic-penguin/cookbook-snmp.png?branch=master)](http://travis-ci.org/atomic-penguin/cookbook-snmp)
+[![Cookbook](http://img.shields.io/cookbook/v/cookbook-snmp.svg)](https://github.com/thomasvincent/cookbook-snmp)
+[![Build Status](https://travis-ci.org/thomasvincent/cookbook-snmp.svg?branch=master)](https://travis-ci.org/thomasvincent/cookbook-snmp)
 
-Description
 ===========
 
 Installs and configures snmpd.
