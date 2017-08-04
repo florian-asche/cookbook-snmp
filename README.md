@@ -1,7 +1,7 @@
 SNMP
 ----
 
-[![Cookbook](http://img.shields.io/cookbook/v/cookbook-snmp.svg)](https://github.com/thomasvincent/cookbook-snmp)
+[![Chef cookbook](https://img.shields.io/cookbook/v/chef-sugar.svg)](https://github.com/thomasvincent/cookbook-snmp)
 [![Build Status](https://travis-ci.org/thomasvincent/cookbook-snmp.svg?branch=master)](https://travis-ci.org/thomasvincent/cookbook-snmp)
 
 ===========
