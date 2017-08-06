@@ -1,18 +1,28 @@
----
 driver:
   name: vagrant
 
-platforms:
-- name: ubuntu-12.04
-  run_list:
-  - recipe[apt]
-- name: ubuntu-10.04
-  run_list:
-  - recipe[apt]
-- name: centos-7.1
-- name: centos-6.6
-- name: centos-5.11
+provisioner:
+  name: chef_zero
+  deprecations_as_errors: true
 
+verifier:
+  name: inspec
+
+platforms:
+  - name: amazon-linux
+    driver_config:
+      box: mvbcoding/awslinux
+  - name: centos-6.9
+  - name: centos-7.3
+  - name: debian-7.11
+  - name: debian-8.8
+  - name: debian-9.0
+  - name: fedora-25
+  - name: ubuntu-14.04
+  - name: ubuntu-16.04
+  - name: freebsd-10.3
+  - name: freebsd-11.0
+  
 suites:
 - name: default
   run_list:
