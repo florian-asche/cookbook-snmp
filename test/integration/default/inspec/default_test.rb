@@ -1,15 +1,27 @@
 # # encoding: utf-8
 
 pkg = if os.debian?
-        'snmpd'
+        'net-snmpd'
       elsif os.redhat?
-        'snmpd'
+        'net-snmpd'
       elsif os.suse?
-        'snmpd'
+        'net-snmpd'
       elsif os.linux?
-        'snmpd'
+        'net-snmpd'
       elsif os.bsd?
-        'snmpd'
+        'net-snmpd'
+      end
+
+config = if os.debian?
+        '/etc/snmp/snmpd.conf'
+      elsif os.redhat?
+        '/etc/snmp/snmpd.conf'
+      elsif os.suse?
+        '/etc/snmp/snmpd.conf'
+      elsif os.linux?
+        '/etc/snmp/snmpd.conf'
+      elsif os.bsd?
+        ' /usr/local/share/snmp/snmpd.conf'
       end
 
 describe package(pkg) do
@@ -21,7 +33,7 @@ describe service('snmpd') do
   it { should be_running }
 end
 
-describe file('/etc/snmp/snmpd.conf') do
+describe file(file) do
    it { should exist }
    it { should be_owned_by 'root' }
    it { should be_readable.by('root')}
