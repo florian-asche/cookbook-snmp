@@ -1,9 +1,9 @@
 SNMP
 ----
 
-[![Build Status](https://secure.travis-ci.org/atomic-penguin/cookbook-snmp.png?branch=master)](http://travis-ci.org/atomic-penguin/cookbook-snmp)
+[![Chef cookbook](https://img.shields.io/cookbook/v/chef-sugar.svg)](https://github.com/thomasvincent/cookbook-snmp)
+[![Build Status](https://travis-ci.org/thomasvincent/cookbook-snmp.svg?branch=master)](https://travis-ci.org/thomasvincent/cookbook-snmp)
 
-Description
 ===========
 
 Installs and configures snmpd.
@@ -71,6 +71,11 @@ these following attributes to best suit your own environment.
     This defaults to "false" as many distributions ship this way to speed up
      snmpwalk.  However, if you're running SNMP Network Management System,
      you'll want to override this as "true" on your systems.
+
+* `snmp['additional_oids']`
+  - String or Array of Strings representing the oid to include in systemview.
+    This defaults to "nil". You can add one oid in the of '.1.3.6.1.2.1.2021' or
+    an array of oids like ['.1.3.6.1.2.1.2021','.1.3.6.1.4.1.20267.200']
 
 * `snmp['include_all_disks']`
   - Boolean to include disk usage checks for all filesystems.
@@ -183,8 +188,11 @@ You can apply these override attributes in a role, or node context.
 ### Author and License
 
 Author:: Eric G. Wolfe (eric.wolfe@gmail.com) [![endorse](https://api.coderwall.com/atomic-penguin/endorsecount.png)](https://coderwall.com/atomic-penguin)
+Author:: Thomas Vincent (thomasvincent@gmail.com) [![endorse](https://api.coderwall.com/thomasvincent/endorsecount.png)](https://coderwall.com/thomasvincent)
 
-Copyright 2010-2014
+
+Copyright Thomas Vincent 2017
+Copyright Eric G. Wolfe 2010-2017
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
