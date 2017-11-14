@@ -13,7 +13,7 @@ manufactured hardware is detected by Ohai.
 
 ### Recipes
 
-* snmp::snmpd
+* snmp::default
   - Installs and configures SNMPD
 
 * snmp::snmptrapd
