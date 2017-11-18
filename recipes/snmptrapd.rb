@@ -26,7 +26,7 @@ service node['snmp']['snmptrapd']['service'] do
 end
 
 template '/etc/snmp/snmptrapd.conf' do
-  mode 0644
+  mode 0o644
   owner 'root'
   group 'root'
   notifies :restart, "service[#{node['snmp']['snmptrapd']['service']}]"

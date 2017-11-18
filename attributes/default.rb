@@ -26,7 +26,7 @@ when 'debian'
   default['snmp']['packages'] = %w(snmp snmpd)
   default['snmp']['snmpd']['snmpd_run'] = 'yes'
   default['snmp']['snmpd']['snmpd_opts'] = '-Lsd -Lf /dev/null -u snmp -g snmp -I -smux -p /var/run/snmpd.pid'
-  #default['snmp']['snmptrapd']['trapd_run'] = 'no'
+  # default['snmp']['snmptrapd']['trapd_run'] = 'no'
   default['snmp']['snmptrapd']['trapd_opts'] = '-Lsd -p /var/run/snmptrapd.pid'
   default['snmp']['snmpd']['snmpd_compat'] = 'yes'
 when 'suse'
