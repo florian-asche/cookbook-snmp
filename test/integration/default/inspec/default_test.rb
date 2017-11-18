@@ -9,7 +9,7 @@ pkg = if os.debian?
       elsif os.linux?
         'net-snmpd'
       elsif os.bsd?
-        'net-snmpd'
+        'net-snmp'
       else
         'net-snmp net-snmp-utils'
       end

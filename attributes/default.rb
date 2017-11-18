@@ -31,6 +31,8 @@ when 'debian'
   default['snmp']['snmpd']['snmpd_compat'] = 'yes'
 when 'suse'
   default['snmp']['packages'] = %w(net-snmp)
+when 'fedora'
+  default['snmp']['packages'] = %w(net-snmp net-snmp-utils)
 else
   default['snmp']['packages'] = %w(net-snmp net-snmp-utils)
 end
