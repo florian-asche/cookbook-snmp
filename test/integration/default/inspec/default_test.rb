@@ -1,18 +1,20 @@
 # # encoding: utf-8
 
 pkg = if os.debian?
-        'net-snmpd'
+        'snmp snmpd'
       elsif os.redhat?
-        'net-snmpd'
+        'net-snmp net-snmp-utils'
       elsif os.suse?
-        'net-snmpd'
+        'net-snmp'
       elsif os.linux?
         'net-snmpd'
       elsif os.bsd?
         'net-snmpd'
+      els
+        'net-snmp net-snmp-utils'
       end
 
-config = if os.debian?
+file = if os.debian?
         '/etc/snmp/snmpd.conf'
       elsif os.redhat?
         '/etc/snmp/snmpd.conf'
@@ -36,9 +38,8 @@ end
 describe file(file) do
    it { should exist }
    it { should be_owned_by 'root' }
-   it { should be_readable.by('root')}
-   its('type') { should eq 'file' }
+   its('type') { should eq :file }
    it { should be_file }
    it { should_not be_directory }
-   its('mode') { should cmp '00644' }
+   its('mode') { should cmp '0600' }
 end

@@ -23,7 +23,7 @@ end
 
 template '/etc/default/snmpd' do
   source 'snmpd_default.debian.erb'
-  mode 0644
+  mode '0644'
   owner 'root'
   group 'root'
   notifies :restart, "service[#{node['snmp']['service']}]"
@@ -32,7 +32,7 @@ end
 
 template '/etc/sysconfig/snmpd' do
   source 'snmpd_default.rhel.erb'
-  mode 0644
+  mode '0644'
   owner 'root'
   group 'root'
   notifies :restart, "service[#{node['snmp']['service']}]"

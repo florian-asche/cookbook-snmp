@@ -47,7 +47,7 @@ default['snmp']['mibs'] = nil
 default['snmp']['snmpd']['conffile'] = '/etc/snmp/snmpd.conf'
 default['snmp']['snmpd']['conf_owner'] = 'root'
 default['snmp']['snmpd']['conf_group'] = 'root'
-default['snmp']['snmpd']['conf_mode'] = 0600
+default['snmp']['snmpd']['conf_mode'] = '0600'
 
 # snmpd - inside config
 default['snmp']['snmpd']['agentAddress'] = 'udp:161'
