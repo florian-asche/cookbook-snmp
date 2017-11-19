@@ -280,7 +280,7 @@ You can apply these override attributes in a role, or node context.
             ]
           }
         },
-        "ignoredisk": [
+        "ignoredisks": [
           "/media/trash"
         ],
         "skipNFSInHostResources": true,
