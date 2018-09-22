@@ -7,7 +7,7 @@ v5.0.0
 * Fixed several bugs
 * Added default configuration file template for rhel and auto restart for changes of those
 * Added some missing variables
-* Improoved documentation
+* Improved documentation
 
 v4.0.2
 ------
