@@ -1,5 +1,9 @@
 snmp cookbook CHANGELOG
 =======================
+v5.0.2
+------
+* allow a config to skip connection logging (dontLogTCPWrappersConnects)
+
 v5.0.0
 ------
 @florian-asche

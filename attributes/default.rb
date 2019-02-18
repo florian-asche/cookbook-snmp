@@ -76,6 +76,7 @@ default['snmp']['snmpd']['ignoredisks'] = []
 default['snmp']['snmpd']['skipNFSInHostResources'] = nil
 default['snmp']['snmpd']['load_average'] = []
 default['snmp']['snmpd']['trapsinks'] = []
+default['snmp']['snmpd']['dontLogTCPWrappersConnects'] = nil
 default['snmp']['snmptrapd']['trapcommunity'] = 'public'
 default['snmp']['snmptrapd']['trapd_run'] = 'no'
 default['snmp']['snmpd']['extend_scripts'] = {}
