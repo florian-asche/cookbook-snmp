@@ -114,6 +114,17 @@ rocommunity <%= node['snmp']['snmpd']['community'] %> 127.0.0.1
 <% end %>
 
 ###############################################################################
+# Logging
+#
+# We do not want annoying "Connection from UDP: " messages in syslog.
+# If the following option is commented out, snmpd will print each incoming
+# connection, which can be useful for debugging.
+
+<% if node.read('snmp', 'dontLogTCPWrappersConnects') %>
+dontLogTCPWrappersConnects <%= node['snmp']['dontLogTCPWrappersConnects'] %>
+<% end %>
+
+###############################################################################
 # Process monitoring
 #
 #  See the snmpd.conf manual page, and the output of "snmpd -H".
